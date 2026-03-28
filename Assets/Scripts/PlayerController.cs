@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         bulletRb.mass = 0.1f;
         bullet.transform.position = CamPosObject.transform.position;
         bullet.transform.rotation = CamPosObject.transform.rotation;
-        bulletRb.AddRelativeForce(new Vector3(0,0,200));
+        bulletRb.AddRelativeForce(new Vector3(0,0,-100));
         Invoke("Reload", 5f);
     }
 
