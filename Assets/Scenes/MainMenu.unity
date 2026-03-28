@@ -322,6 +322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4754257043818879603, guid: b9883f2a9391ba047982cea442672c5b, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6190460498717001810, guid: b9883f2a9391ba047982cea442672c5b, type: 3}
       propertyPath: m_Name
       value: Steak
@@ -1700,6 +1704,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4754257043818879603, guid: b9883f2a9391ba047982cea442672c5b, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6190460498717001810, guid: b9883f2a9391ba047982cea442672c5b, type: 3}
       propertyPath: m_Name
       value: Steak (1)
