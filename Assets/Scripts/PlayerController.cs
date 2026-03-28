@@ -8,13 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject SampleBullet;
     [SerializeField] GameObject CurretCamera;
     [SerializeField] float HoverSpeed = 1;
-    [SerializeField] float BulletSpeed = 100;
-    Camera Cam;
+    [SerializeField] float BulletSpeed = 150;
     bool ShootCD = false;
 
     private void Start()
     {
-        Camera Cam = GetComponent<Camera>();
     }
 
     void Reload()
@@ -69,16 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
-        if (Mouse.current.scroll.ReadValue().y != 0)
+        float scrollwheelspeed = Mouse.current.scroll.ReadValue().y;
+        if (scrollwheelspeed != 0)
         {
-            if (Mouse.current.scroll.ReadValue().y > 0)
-            {
-                Cam.fieldOfView = Mathf.Clamp(Cam.fieldOfView - 1, 10, 60);
-            }
-            else
-            {
-                Cam.fieldOfView = Mathf.Clamp(Cam.fieldOfView + 1, 10, 60);
-            }
+            UnityEngine.Camera Cam = CurretCamera.GetComponent<UnityEngine.Camera>();
+            Cam.fieldOfView = Mathf.Clamp(Cam.fieldOfView - (scrollwheelspeed * 2), 10, 60);
         }
     }
 }
