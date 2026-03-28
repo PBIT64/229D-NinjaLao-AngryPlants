@@ -1,16 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OnExit : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    public void StartGame() {
+        SceneManager.LoadScene("DemoGameplay");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Exit() {
+        Application.Quit();
     }
 }
