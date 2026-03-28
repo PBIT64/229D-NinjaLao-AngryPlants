@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Credit : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    GameObject CreditGui;
+    private void Start()
     {
-        
+        CreditGui = transform.parent.parent.Find("CreditGui").gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CreditToggle()
     {
-        
+        CreditGui.SetActive(!CreditGui.activeSelf);
     }
 }

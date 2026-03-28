@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScore : MonoBehaviour
 {
     [SerializeField] ScoreTable ScoreTable;
+    GameResulter GameResulter = FindFirstObjectByType<GameResulter>();
     int score = 0;
     int maxscore = 0;
     void Start()
@@ -19,6 +20,10 @@ public class PlayerScore : MonoBehaviour
         score++;
         int starCount = -(maxscore - 3 - score);
         ScoreTable.SetStar(starCount);
+        if (score >= 3)
+        {
+            GameResulter.EndGame(true);
+        }
     }
 
 }

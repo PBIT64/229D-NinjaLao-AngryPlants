@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject CurretCamera;
     [SerializeField] float HoverSpeed = 1;
     [SerializeField] float BulletSpeed = 150;
+    GameResulter GameResulter = FindFirstObjectByType<GameResulter>();
     bool ShootCD = false;
 
     void UpdateBulletText()
@@ -30,9 +31,14 @@ public class PlayerController : MonoBehaviour
         ShootCD = false;
     }
 
+    void GameLose()
+    {
+        GameResulter.EndGame(false);
+    }
+
     void Shoot()
     {
-        if (ShootCD || BulletRemain <= 0) { return; }
+        if (ShootCD || BulletRemain <= 0 || GameResulter.GameEnded != true) { return; }
         SampleBullet.SetActive(false);
         ShootCD = true;
         BulletRemain--;
@@ -56,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-
+            Invoke("GameLose", 7f);
         }
     }
 
